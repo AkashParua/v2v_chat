@@ -1,1 +1,0 @@
-https://deadsimplechat.com/blog/flutter-chat-app-without-firebase/
