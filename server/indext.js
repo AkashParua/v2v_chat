@@ -50,13 +50,17 @@ io.on('connection', async (socket) => {
         redisClient.expire(newMessage.id, 300);
         io.emit('message', newMessage);
     } );
-    
+    try {
     // Fetching messages from redis
     const existingMessages = await redisClient.lrange('chat_messages', 0, -1);
     
     const parsedMessages = existingMessages.map((message) => JSON.parse(message));
     
     socket.emit('messages', parsedMessages);
+    }
+    catch(err){
+        console.log(err);
+    }
     
 });
 
