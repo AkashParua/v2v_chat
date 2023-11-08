@@ -104,11 +104,11 @@ class _ChatWidgetState extends State<ChatWidget> {
         chatMessages = [
           ...chatMessages,
           ChatMessageWidget(
-              username: message['username'],
-              message: message['message'],
-              vehicleId: message['vehicleId'],
-              vehicleType: message['vehicleType'],
-              timestamp: convertTimeStamp(message['created']))
+              username: message['username'] ?? 'Unknown',
+              message: message['message'] ?? ' ',
+              vehicleId: message['vehicleId'] ?? ' ',
+              vehicleType: message['vehicleType'] ?? ' ',
+              timestamp: convertTimeStamp(message['created'] ?? 0))
         ];
       });
       SchedulerBinding.instance.addPostFrameCallback((_) {
